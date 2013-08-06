@@ -1,0 +1,12 @@
+<section class="home" ng-controller="HomeController">
+  <h1 class="title">Artists</h1>
+  <ul class="home-list-artists">
+    <li ng-repeat="item in home.artists">
+      <figure>
+        <a href="/#/artists/{{item.name}}"><img src="{{item.image[3]['#text']}}" alt=""></a>
+        <figcaption>{{item.name}}</figcaption>
+      </figure>
+    </li>
+  </ul>
+  <p class="button-load-more"><button ng-click="loadMoreArtists()">Load more artists</button></p>
+</section>

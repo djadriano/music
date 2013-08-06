@@ -1,0 +1,20 @@
+<section class="videos" ng-controller="MusicController">
+  <ng-include src="'partials/artists_menu.html'"></ng-include>
+  <figure class="artists-picture">
+    <img ng-src="{{artists.infos.image[3]['#text']}}">
+    <figcaption>
+      <h1>{{artists.infos.name}} - Music</h1>
+    </figcaption>
+  </figure>
+  <ul class="artists-videos">
+    <li ng-repeat="item in artist_music">
+      <figure>
+        <a ng-click="openMusic(item.uri)"><img ng-src="{{item.artwork_url}}"></a>
+        <figcaption>
+          {{item.title}}
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+  <p class="button-load-more" ng-show="artist_music_next_href != ''"><button ng-click="loadMoreMusic()">Load more music</button></p>
+</section>

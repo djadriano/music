@@ -1,0 +1,40 @@
+/**
+ *
+ * Header.css.scss
+ * ---------------------------------------------------
+ * Contains styles used in header
+ *
+ */
+
+.header {
+  display: -webkit-flex;
+  background: $color-white;
+  width: 100%;
+  height: em(90);
+  padding: em(10) em(20);
+  border-bottom: 1px solid #ccc;
+
+  .header-content {
+    display: -webkit-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -webkit-align-items: center;
+  }
+
+  .header-logo {
+    img {
+      width: em(170);
+      height: em(60);
+    }
+
+    figcaption {
+      display: none;
+    }
+  }
+
+  .header-nav-links {
+    li {
+      display: inline-block;
+    }
+  }
+}

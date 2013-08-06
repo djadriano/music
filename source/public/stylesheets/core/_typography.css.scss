@@ -1,0 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: em(16);
+  font-weight: 400;
+}
+
+.title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: em(50);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: em(5);
+  margin-bottom: em(5);
+}

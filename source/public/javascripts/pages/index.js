@@ -1,0 +1,8 @@
+//= require '_app/factorys/home'
+//= require '_app/factorys/artists'
+//= require '_app/factorys/videos'
+//= require '_app/factorys/music'
+//= require '_app/controllers/home'
+//= require '_app/controllers/artists'
+//= require '_app/controllers/videos'
+//= require '_app/controllers/music'
