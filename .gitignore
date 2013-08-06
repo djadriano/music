@@ -14,4 +14,4 @@
 /.sass-cache
 
 # Ignore Bower Libraries
-/public/javascripts/_libraries
+/source/public/javascripts/_libraries
