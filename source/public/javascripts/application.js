@@ -13,6 +13,9 @@ EurodanceApp.config(['$routeProvider', function( $routeProvider ) {
     })
     .when('/artists/:name/music', {
       templateUrl: 'partials/music.html'
+    })
+    .when('/search/:value', {
+      templateUrl: 'partials/search.html'
     });
 }]);
 
@@ -20,6 +23,10 @@ EurodanceApp.run(['$rootScope', function( $rootScope ) {
   $rootScope.currentPage = 1;
 
   $rootScope.home = {
+    artists : []
+  };
+
+  $rootScope.search = {
     artists : []
   };
 

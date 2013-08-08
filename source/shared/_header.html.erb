@@ -10,6 +10,11 @@
       <ul class="header-nav-links is-not-list">
         <li><a href="#">Artistas</a></li>
         <li><a href="#">Podcasts</a></li>
+        <li>
+          <form action="" ng-submit="submit()" ng-controller="SearchController">
+            <input type="search" class="header-nav-search" ng-model="searchName">
+          </form>
+        </li>
       </ul>
     </nav>
   </div>
