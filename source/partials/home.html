@@ -1,5 +1,6 @@
 <section class="home" ng-controller="HomeController">
   <h1 class="title">Artists</h1>
+  <p class="loading" ng-show="home.artists.length == 0">loading artists...</p>
   <ul class="home-list-artists">
     <li ng-repeat="item in home.artists">
       <figure>
@@ -8,5 +9,5 @@
       </figure>
     </li>
   </ul>
-  <p class="button-load-more"><button ng-click="loadMoreArtists()">Load more artists</button></p>
+  <p class="button-load-more" ng-show="home.artists.length > 0"><button ng-click="loadMoreArtists()">Load more artists</button></p>
 </section>

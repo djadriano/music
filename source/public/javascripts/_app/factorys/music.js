@@ -12,9 +12,6 @@ EurodanceApp.factory( 'MusicFactory', function( $http ) {
           offset : page === '' ? 0 : ( page * 20 )
         },
         cache  : true
-      })
-      .then(function( data, status, headers, config ) {
-        return data;
       });
 
     }

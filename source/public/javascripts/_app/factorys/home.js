@@ -16,9 +16,6 @@ EurodanceApp.factory( 'HomeFactory', function( $http ) {
           limit : ( limit * page )
         },
         cache  : true
-      })
-      .then(function( data, status, headers, config ) {
-        return data;
       });
 
     }

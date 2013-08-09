@@ -1,12 +1,14 @@
 EurodanceApp.controller('SearchController', function( $scope, $rootScope, $routeParams, $location, ArtistsFactory ) {
 
+  $scope.artists = [];
+
   // define methods
   // ---------------------------------------------
 
   $scope.getArtists = function() {
 
     ArtistsFactory.getInfo( $routeParams.value ).then(function( response ) {
-      $rootScope.search.artists = [response.data.artist];
+      $scope.artists.push( response.data.artist );
     });
 
   };

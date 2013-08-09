@@ -1,20 +1,23 @@
 <section class="artists" ng-controller="ArtistsController">
-  <ng-include src="'partials/artists_menu.html'"></ng-include>
-  <figure class="artists-picture">
-    <img src="{{artists.infos.image[3]['#text']}}">
-    <figcaption>
-      <h1 class="title">{{artists.infos.name}}</h1>
-    </figcaption>
-  </figure>
-  <p ng-bind-html-unsafe="artists.infos.bio.content">{{artists.infos.bio.content}}</p>
-  <ul class="artists-similar">
-    <li ng-repeat="item in artists.infos.similar.artist">
-      <figure>
-        <a href="/#/artists/{{item.name}}"><img src="{{item.image[1]['#text']}}"></a>
-        <figcaption>
-          {{item.name}}
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
+  <p class="loading" ng-show="artistsInfo.length == 0">loading artist info...</p>
+  <div class="artists-content" ng-repeat="artistData in artistsInfo">
+    <ng-include src="'partials/artists_menu.html'"></ng-include>
+    <figure class="artists-picture">
+      <img src="{{artistData.image[3]['#text']}}">
+      <figcaption>
+        <h1 class="title">{{artistData.name}}</h1>
+      </figcaption>
+    </figure>
+    <p ng-bind-html-unsafe="artistData.bio.content">{{artistData.infos.bio.content}}</p>
+    <ul class="artists-similar">
+      <li ng-repeat="item in artistData.similar.artist">
+        <figure>
+          <a href="/#/artists/{{item.name}}"><img src="{{item.image[1]['#text']}}"></a>
+          <figcaption>
+            {{item.name}}
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
 </section>

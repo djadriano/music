@@ -11,9 +11,6 @@ EurodanceApp.factory( 'ArtistsFactory', function( $http ) {
           artist : name
         },
         cache  : true
-      })
-      .then(function( data, status, headers, config ) {
-        return data;
       });
 
     }

@@ -1,7 +1,7 @@
 <section class="home" ng-controller="SearchController">
   <h1 class="title">Search Results</h1>
   <ul class="home-list-artists">
-    <li ng-repeat="item in search.artists">
+    <li ng-repeat="item in artists">
       <figure>
         <a href="/#/artists/{{item.name}}"><img src="{{item.image[3]['#text']}}" alt=""></a>
         <figcaption>{{item.name}}</figcaption>
