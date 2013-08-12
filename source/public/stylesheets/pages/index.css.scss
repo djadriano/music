@@ -9,13 +9,11 @@
 }
 
 .home-list-artists {
-  @include transition(all 300ms ease-in-out);
   padding: 0;
   margin: 0;
   -webkit-column-count: auto;
   -webkit-column-gap: em(20);
   -webkit-column-width: em(200);
-  // vertical-align: top;
   @include translate3d(0, 0, 0);
 
   li {
