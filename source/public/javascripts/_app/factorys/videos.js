@@ -12,9 +12,6 @@ EurodanceApp.factory( 'VideosFactory', function( $http ) {
           pageToken : page
         },
         cache  : true
-      })
-      .then(function( data, status, headers, config ) {
-        return data;
       });
 
     }

@@ -1,11 +1,12 @@
 <section class="videos" ng-controller="VideosController">
   <ng-include src="'partials/artists_menu.html'"></ng-include>
   <figure class="artists-picture">
-    <img ng-src="{{artists.infos.image[3]['#text']}}">
+    <img ng-src="{{artists.infos.photo}}">
     <figcaption>
       <h1 class="title">{{artists.infos.name}} - Videos</h1>
     </figcaption>
   </figure>
+  <p class="loading" ng-show="artist_videos.length == 0">loading videos...</p>
   <ul class="artists-videos">
     <li ng-repeat="item in artist_videos">
       <figure>
@@ -16,5 +17,5 @@
       </figure>
     </li>
   </ul>
-  <p class="button-load-more" ng-show="artist_videos.length <= artist_videos_total"><button ng-click="loadMoreVideos()">Load more videos</button></p>
+  <p class="button-load-more" ng-show="artist_videos.length <= artist_videos_total && artist_videos.length > 0"><button ng-click="loadMoreVideos()">Load more videos</button></p>
 </section>

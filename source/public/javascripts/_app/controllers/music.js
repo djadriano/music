@@ -11,7 +11,10 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
 
     if( $rootScope.artists.infos.length === 0 ) {
       ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
-        $rootScope.artists.infos = response.data.artist;
+        $rootScope.artists.infos = {
+          name  : response.data.artist.name,
+          photo : response.data.artist.image[ 3 ][ '#text' ]
+        };
       });
     }
 

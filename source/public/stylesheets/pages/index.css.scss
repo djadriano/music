@@ -31,7 +31,7 @@
       position: relative;
 
       img {
-        // @include border-radius(5px);
+        @include border-radius(3px);
         @include transition(all 300ms ease-in-out);
         @include translate3d(0, 0, 0);
         width: 100%;
@@ -44,7 +44,14 @@
         }
       }
 
+      &:hover {
+        figcaption {
+          opacity: 1;
+        }
+      }
+
       figcaption {
+        @include transition(opacity 300ms ease-in-out);
         text-align: left;
         padding: em(10);
         position: absolute;
@@ -54,6 +61,7 @@
         text-transform: uppercase;
         font-size: em(20);
         background: #000;
+        opacity: 0;
       }
     }
   }
@@ -151,4 +159,11 @@
     width: 100%;
     margin: auto;
   }
+}
+
+.loading {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: em(20);
+  font-weight: bold;
 }

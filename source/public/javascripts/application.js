@@ -26,10 +26,6 @@ EurodanceApp.run(['$rootScope', function( $rootScope ) {
     artists : []
   };
 
-  $rootScope.search = {
-    artists : []
-  };
-
   $rootScope.artists = {
     infos : []
   };
