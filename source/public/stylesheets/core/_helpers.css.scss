@@ -30,8 +30,15 @@ legend, hr { display: none; }
 
 fieldset { border: 0; }
 
+html {
+  height: 100%;
+}
+
 body {
+  background: #fff;
   color: $color-gray-2;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /**

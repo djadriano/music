@@ -1,5 +1,6 @@
 <header class="header">
   <div class="header-content">
+    <a menu>Menu</a>
     <figure class="header-logo">
       <%= image_tag 'eurodance-logo.svg' %>
       <figcaption>
@@ -8,8 +9,6 @@
     </figure>
     <nav class="header-nav">
       <ul class="header-nav-links is-not-list">
-        <li><a href="#">Artistas</a></li>
-        <li><a href="#">Podcasts</a></li>
         <li>
           <form action="" ng-submit="submit()" ng-controller="SearchController">
             <input type="search" class="header-nav-search" ng-model="searchName">

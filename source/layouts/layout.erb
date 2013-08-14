@@ -16,10 +16,17 @@
 
   <body class="<%= page_classes %>" ng-app="eurodancecombr">
 
-    <%= partial "shared/player" %>
-    <%= partial "shared/header" %>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Artistas</a></li>
+        <li><a href="#">Podcasts</a></li>
+        <li><a href="#">Lugares</a></li>
+      </ul>
+    </nav>
 
-    <div ng-class="{'teste':video.playing != ''}">
+    <div class="content" ng-class="{open: openMenu}">
+      <%= partial "shared/player" %>
+      <%= partial "shared/header" %>
       <%= yield %>
     </div>
 

@@ -24,4 +24,23 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
   // start the app
   $scope.showArtists();
 
+})
+.directive('menu', function() {
+  return {
+    restrict: 'A',
+    link: function( scope, element, attrs ) {
+      element.bind('click', function() {
+        if( !scope.openMenu ) {
+          scope.$apply(function() {
+            scope.openMenu = true;
+          });
+        } else {
+          scope.$apply(function() {
+            scope.openMenu = false;
+          });
+        }
+      });
+
+    }
+  };
 });
