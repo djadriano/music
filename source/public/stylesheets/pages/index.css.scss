@@ -26,7 +26,7 @@
 .home {
   background: #fff;
   padding: 0 em(20);
-  padding-top: 150px;
+  // padding-top: 150px;
 
   h1 {
     // text-align: left;
@@ -103,7 +103,6 @@
 
 .artists {
   background: #fff;
-  padding-top: 150px;
 }
 
 .artists-picture {
@@ -185,13 +184,14 @@
   top: 0;
   left: 0;
 
-  .player-video-container {
+  .video {
     width: 400px;
     height: 300px;
     margin: auto;
+    border: 1px solid;
   }
 
-  .player-music-container {
+  .music {
     width: 100%;
     margin: auto;
   }
@@ -202,4 +202,8 @@
   text-transform: uppercase;
   font-size: em(20);
   font-weight: bold;
+}
+
+.player-video-container {
+  // display: none;
 }

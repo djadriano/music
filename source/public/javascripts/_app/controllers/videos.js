@@ -1,4 +1,4 @@
-EurodanceApp.controller('VideosController', function( $scope, $rootScope, $routeParams, ArtistsFactory, VideosFactory ) {
+EurodanceApp.controller('VideosController', function( $scope, $rootScope, $routeParams, ArtistsFactory, VideosFactory, PlayerFactory ) {
 
   // define methods
   // ---------------------------------------------
@@ -40,9 +40,11 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
   };
 
   $scope.openVideo = function( param ) {
-    $rootScope.video.playing = param;
-    $rootScope.music.playing = '';
+
+    PlayerFactory.play( param, 'video' );
+
     window.scrollTo(0);
+
   };
 
   // start the app

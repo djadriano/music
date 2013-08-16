@@ -1,4 +1,4 @@
-var EurodanceApp = angular.module( 'eurodancecombr', [] );
+var EurodanceApp = angular.module( 'eurodancecombr', ['ngRoute'] );
 
 EurodanceApp.config(['$routeProvider', function( $routeProvider ) {
   $routeProvider
@@ -31,10 +31,10 @@ EurodanceApp.run(['$rootScope', function( $rootScope ) {
   };
 
   $rootScope.video = {
-    playing : ''
-  }
+    playing : false
+  };
 
   $rootScope.music = {
-    playing : ''
-  }
+    playing : false
+  };
 }]);
