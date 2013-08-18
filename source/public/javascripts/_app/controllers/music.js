@@ -1,4 +1,4 @@
-EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeParams, ArtistsFactory, MusicFactory ) {
+EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeParams, ArtistsFactory, MusicFactory, PlayerFactory ) {
 
   // define methods
   // ---------------------------------------------
@@ -9,12 +9,12 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
 
   $scope.checkExistArtistData = function() {
 
-    if( $rootScope.artists.infos.length === 0 ) {
+    if( !!$rootScope.artists === false ) {
       ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
-        $rootScope.artists.infos = {
+        ArtistsFactory.setScopeInfo({
           name  : response.data.artist.name,
           photo : response.data.artist.image[ 3 ][ '#text' ]
-        };
+        });
       });
     }
 
@@ -41,9 +41,10 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
   };
 
   $scope.openMusic = function( param ) {
-    $rootScope.video.playing = '';
-    $rootScope.music.playing = param;
+
+    PlayerFactory.play( param, 'music' );
     window.scrollTo(0);
+
   };
 
   // start the app

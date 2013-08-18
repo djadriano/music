@@ -1,4 +1,4 @@
-EurodanceApp.factory( 'HomeFactory', function( $http ) {
+EurodanceApp.factory( 'HomeFactory', function( $rootScope, $http ) {
 
   return {
 
@@ -17,6 +17,14 @@ EurodanceApp.factory( 'HomeFactory', function( $http ) {
         },
         cache  : true
       });
+
+    },
+
+    setScopeInfo: function( objInfo ) {
+
+      $rootScope.home = {
+        artists: objInfo
+      };
 
     }
 

@@ -9,12 +9,12 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
 
   $scope.checkExistArtistData = function() {
 
-    if( $rootScope.artists.infos.length === 0 ) {
+    if( !!$rootScope.artists === false ) {
       ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
-        $rootScope.artists.infos = {
+        ArtistsFactory.setScopeInfo({
           name  : response.data.artist.name,
           photo : response.data.artist.image[ 3 ][ '#text' ]
-        };
+        });
       });
     }
 

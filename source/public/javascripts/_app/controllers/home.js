@@ -6,7 +6,7 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
   $scope.showArtists = function() {
 
     HomeFactory.getArtist( $rootScope.currentPage ).then(function( response ) {
-      $rootScope.home.artists = response.data.weeklyartistchart.artist;
+      HomeFactory.setScopeInfo( response.data.weeklyartistchart.artist );
     });
 
   }
@@ -16,7 +16,7 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
     $rootScope.currentPage = ( $rootScope.currentPage + 1 );
 
     HomeFactory.getArtist( $rootScope.currentPage ).then(function( response ) {
-      $rootScope.home.artists = response.data.weeklyartistchart.artist;
+      HomeFactory.setScopeInfo( response.data.weeklyartistchart.artist );
     });
 
   }

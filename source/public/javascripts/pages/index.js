@@ -9,4 +9,3 @@
 //= require '_app/controllers/videos'
 //= require '_app/controllers/music'
 //= require '_app/controllers/search'
-//= require '_app/controllers/player'

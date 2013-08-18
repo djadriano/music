@@ -10,7 +10,7 @@
   <ul class="artists-videos">
     <li ng-repeat="item in artist_videos">
       <figure>
-        <a ng-click="openVideo(item.id.videoId)"><img src="{{item.snippet.thumbnails.medium.url}}"></a>
+        <a ng-click="openVideo(item.id.videoId)"><img ng-src="{{item.snippet.thumbnails.medium.url}}"></a>
         <figcaption>
           {{item.snippet.title}}
         </figcaption>

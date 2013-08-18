@@ -8,11 +8,11 @@
         <h1 class="title">{{artistData.name}}</h1>
       </figcaption>
     </figure>
-    <p ng-bind-html-unsafe="artistData.bio.content">{{artistData.infos.bio.content}}</p>
+    <p ng-bind-html="artistData.bio.content">{{artistData.bio.content}}</p>
     <ul class="artists-similar">
       <li ng-repeat="item in artistData.similar.artist">
         <figure>
-          <a href="/#/artists/{{item.name}}"><img ng-src="{{item.image[1]['#text']}}"></a>
+          <a ng-href="/#/artists/{{item.name}}"><img ng-src="{{item.image[1]['#text']}}"></a>
           <figcaption>
             {{item.name}}
           </figcaption>

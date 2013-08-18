@@ -11,10 +11,10 @@ EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $rout
 
       $scope.artistsInfo.push( response.data.artist );
 
-      $rootScope.artists.infos = {
+      ArtistsFactory.setScopeInfo({
         name  : response.data.artist.name,
         photo : response.data.artist.image[ 3 ][ '#text' ]
-      };
+      });
 
     });
 

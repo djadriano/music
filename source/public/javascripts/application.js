@@ -1,6 +1,6 @@
 var EurodanceApp = angular.module( 'eurodancecombr', ['ngRoute'] );
 
-EurodanceApp.config(['$routeProvider', function( $routeProvider ) {
+EurodanceApp.config(['$routeProvider', '$sceProvider', function( $routeProvider, $sceProvider ) {
   $routeProvider
     .when('/', {
       templateUrl: 'partials/home.html'
@@ -17,24 +17,10 @@ EurodanceApp.config(['$routeProvider', function( $routeProvider ) {
     .when('/search/:value', {
       templateUrl: 'partials/search.html'
     });
+
+    $sceProvider.enabled( false );
 }]);
 
 EurodanceApp.run(['$rootScope', function( $rootScope ) {
   $rootScope.currentPage = 1;
-
-  $rootScope.home = {
-    artists : []
-  };
-
-  $rootScope.artists = {
-    infos : []
-  };
-
-  $rootScope.video = {
-    playing : false
-  };
-
-  $rootScope.music = {
-    playing : false
-  };
 }]);
