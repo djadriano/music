@@ -20,7 +20,8 @@ EurodanceApp.factory( 'ArtistsFactory', function( $rootScope, $http ) {
       $rootScope.artists = {
         infos : {
           name  : objInfo.name,
-          photo : objInfo.photo
+          photo : objInfo.photo,
+          intro : objInfo.intro
         }
       };
 

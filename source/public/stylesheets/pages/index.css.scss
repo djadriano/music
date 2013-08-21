@@ -22,6 +22,10 @@
   }
 }
 
+.grid {
+  width: 80%;
+  margin: auto;
+}
 
 .home {
   background: #fff;
@@ -95,6 +99,27 @@
 .artists {
   background: #fff;
   padding: 0 em(20);
+}
+
+.artists-header {
+  border: 1px solid #e9e9e9;
+  text-align: left;
+
+  .artists-header-picture {
+    overflow: hidden;
+    padding: em(20);
+
+    img {
+      float: left;
+      margin-right: em(20);
+    }
+
+    figcaption {
+      display: inline-block;
+      float: right;
+      width: 82%;
+    }
+  }
 }
 
 .videos {

@@ -1,13 +1,17 @@
 <section class="artists" ng-controller="ArtistsController">
   <p class="loading" ng-show="artistsInfo.length == 0">loading artist info...</p>
-  <div ng-include="'partials/artists_menu.html'"></div>
+  <header class="artists-header">
+    <div class="artists-header-infos">
+      <figure class="artists-header-picture">
+        <img ng-src="{{artists.infos.photo}}">
+        <figcaption>
+          <h1>{{artists.infos.name}}</h1>
+          <div ng-include="'partials/artists_menu.html'"></div>
+        </figcaption>
+      </figure>
+    </div>
+  </header>
   <div class="artists-content" ng-repeat="artistData in artistsInfo">
-    <figure class="artists-picture">
-      <img ng-src="{{artistData.image[3]['#text']}}">
-      <figcaption>
-        <h1 class="title">{{artistData.name}}</h1>
-      </figcaption>
-    </figure>
     <p ng-bind-html="artistData.bio.content">{{artistData.bio.content}}</p>
     <ul class="artists-similar">
       <li ng-repeat="item in artistData.similar.artist">

@@ -13,7 +13,8 @@ EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $rout
 
       ArtistsFactory.setScopeInfo({
         name  : response.data.artist.name,
-        photo : response.data.artist.image[ 3 ][ '#text' ]
+        intro : response.data.artist.bio.content,
+        photo : response.data.artist.image[ 2 ][ '#text' ]
       });
 
     });
