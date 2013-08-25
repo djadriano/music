@@ -1,21 +1,26 @@
-<section class="videos" ng-controller="MusicController">
-  <ng-include src="'partials/artists_menu.html'"></ng-include>
-  <figure class="artists-picture">
-    <img ng-src="{{artists.infos.photo}}">
-    <figcaption>
-      <h1 class="title">{{artists.infos.name}} - Music</h1>
-    </figcaption>
-  </figure>
-  <p class="loading" ng-show="artist_music.length == 0">loading mixes...</p>
-  <ul class="artists-videos">
-    <li ng-repeat="item in artist_music">
-      <figure>
-        <a ng-click="openMusic(item.uri)"><img ng-src="{{item.artwork_url}}"></a>
-        <figcaption>
-          {{item.title}}
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
-  <p class="button-load-more" ng-show="artist_music_next_href != '' && artist_music.length > 0"><button ng-click="loadMoreMusic()">Load more music</button></p>
+<section class="euro-artists-music" ng-controller="MusicController">
+  <header class="euro-artists-header">
+    <figure class="euro-artists-header-photo">
+      <img ng-src="{{artists.infos.photo}}" alt="{{artists.infos.name}}">
+    </figure>
+    <h1>{{artists.infos.name}}</h1>
+    <nav class="euro-artists-header-nav">
+      <div ng-include="'partials/artists_menu.html'"></div>
+    </nav>
+  </header>
+  <div class="euro-artists-music-content">
+    <h1>Mixes</h1>
+    <p class="loading" ng-show="artist_music.length == 0">loading mixes...</p>
+    <ul class="euro-artists-music-list">
+      <li ng-repeat="item in artist_music">
+        <figure>
+          <a ng-click="openMusic(item.uri)"><img ng-src="{{item.artwork_url}}"></a>
+          <figcaption>
+            {{item.title}}
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="button-load-more" ng-show="artist_music_next_href != '' && artist_music.length > 0"><button ng-click="loadMoreMusic()">Load more music</button></p>
+  </div>
 </section>

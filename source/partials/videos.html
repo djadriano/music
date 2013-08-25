@@ -1,21 +1,27 @@
-<section class="videos" ng-controller="VideosController">
-  <ng-include src="'partials/artists_menu.html'"></ng-include>
-  <figure class="artists-picture">
-    <img ng-src="{{artists.infos.photo}}">
-    <figcaption>
-      <h1 class="title">{{artists.infos.name}} - Videos</h1>
-    </figcaption>
-  </figure>
+<section class="euro-artists-videos" ng-controller="VideosController">
   <p class="loading" ng-show="artist_videos.length == 0">loading videos...</p>
-  <ul class="artists-videos">
-    <li ng-repeat="item in artist_videos">
-      <figure>
-        <a ng-click="openVideo(item.id.videoId)"><img ng-src="{{item.snippet.thumbnails.medium.url}}"></a>
-        <figcaption>
-          {{item.snippet.title}}
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
-  <p class="button-load-more" ng-show="artist_videos.length <= artist_videos_total && artist_videos.length > 0"><button ng-click="loadMoreVideos()">Load more videos</button></p>
+  <header class="euro-artists-header">
+    <figure class="euro-artists-header-photo">
+      <img ng-src="{{artists.infos.photo}}" alt="{{artists.infos.name}}">
+    </figure>
+    <h1>{{artists.infos.name}}</h1>
+    <nav class="euro-artists-header-nav">
+      <div ng-include="'partials/artists_menu.html'"></div>
+    </nav>
+  </header>
+  <div class="euro-artists-videos-content">
+    <h1>Videos</h1>
+    <p class="loading" ng-show="artist_videos.length == 0">loading videos...</p>
+    <ul class="euro-artists-videos-list">
+      <li ng-repeat="item in artist_videos">
+        <figure>
+          <a ng-click="openVideo(item.id.videoId)"><img ng-src="{{item.snippet.thumbnails.medium.url}}"></a>
+          <figcaption>
+            {{item.snippet.title}}
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="button-load-more" ng-show="artist_videos.length <= artist_videos_total && artist_videos.length > 0"><button ng-click="loadMoreVideos()">Load more videos</button></p>
+  </div>
 </section>

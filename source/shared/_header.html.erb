@@ -1,13 +1,16 @@
-<header class="header" ng-class="{open: openMenu}">
-  <div class="header-content">
-    <a menu class="header-menu-link">Menu</a>
-    <figure class="header-logo">
-      <%= image_tag 'eurodance-logo.svg' %>
-      <figcaption>
-        <h1>Eurodance.com.br</h1>
-      </figcaption>
-    </figure>
-    <nav class="header-nav">
+<header class="euro-header">
+  <nav class="euro-header-nav">
+    <a menu><b class="icon-menu-1"></b></a>
+  </nav>
+  <figure class="euro-header-logo">
+    <%= image_tag 'eurodance-logo.svg' %>
+    <figcaption>
+      <h1>Eurodance.com.br</h1>
+    </figcaption>
+  </figure>
+</header>
+
+<!--     <nav class="header-nav">
       <ul class="header-nav-links is-not-list">
         <li>
           <form action="" ng-submit="submit()" ng-controller="SearchController">
@@ -15,6 +18,4 @@
           </form>
         </li>
       </ul>
-    </nav>
-  </div>
-</header>
+    </nav> -->

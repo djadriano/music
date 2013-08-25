@@ -1,0 +1,45 @@
+/**
+ *
+ * Mixins.css.scss
+ * ---------------------------------------------------
+ * Contains all mixins and functions of project
+ *
+ */
+
+@function em($value, $default: 16) {
+  @return ($value / $default) + 0em;
+}
+
+$icons: (
+  'plus'       '\e804',
+  'lastfm'     '\e80c',
+  'home'       '\e803',
+  'star-empty' '\e801',
+  'menu-1'     '\e802',
+  'location'   '\e805',
+  'twitter'    '\e806',
+  'youtube-1'  '\e809',
+  'youtube'    '\e80a',
+  'soundcloud' '\e807',
+  'cd'         '\e808',
+  'cd-1'       '\e80b',
+  'search-1'   '\e800'
+);
+
+@mixin generate-icon-classes( $icons ) {
+  [class^="icon-"]:before,
+  [class*="icon-"]:before {
+    font-family: "fontello";
+    display: inline-block;
+    margin-right: em(10);
+    font-weight: normal;
+  }
+
+  @each $item in $icons {
+    .icon-#{nth($item, 1)}:before {
+      content: nth($item, 2);
+    }
+  }
+}
+
+@include generate-icon-classes( $icons );

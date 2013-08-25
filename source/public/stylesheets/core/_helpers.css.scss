@@ -2,25 +2,7 @@
  *
  * Helpers.css.scss
  * ---------------------------------------------------
- * Contains class, mixins for help in development
- *
- */
-
-/**
- *
- * Functions and Mixins
- * ---------------------------------------------------
- *
- */
-
- @function em($value, $default: 16) {
-  @return ($value / $default) + 0em;
- }
-
-/**
- *
  * Define default values to elements
- * ---------------------------------------------------
  *
  */
 
@@ -31,25 +13,13 @@ legend, hr { display: none; }
 fieldset { border: 0; }
 
 html {
-  background: #fff;
+  background: $color-background;
   height: 100%;
 }
 
 body {
-  background: #fff;
-  color: $color-gray-2;
+  background: $color-background;
   height: 100%;
   overflow-x: hidden;
-}
-
-/**
- *
- * Define classes
- * ---------------------------------------------------
- *
- */
-
-.is-not-list {
-  list-style: none;
-  margin: 0;
+  font-family: $default-font;
 }

@@ -1,13 +1,28 @@
-<section class="home" ng-controller="HomeController">
-  <h1 class="title">Artists</h1>
-  <p class="loading" ng-show="home.artists.length == 0">loading artists...</p>
-  <ul class="home-list-artists">
-    <li ng-repeat="item in home.artists">
-      <figure>
-        <a ng-href="/#/artists/{{item.name}}"><img ng-src="{{item.image[3]['#text']}}" alt=""></a>
-        <figcaption>{{item.name}}</figcaption>
-      </figure>
-    </li>
-  </ul>
-  <p class="button-load-more" ng-show="home.artists.length > 0"><button ng-click="loadMoreArtists()">Load more artists</button></p>
-</section>
+<div class="euro-home" ng-controller="HomeController">
+  <section class="euro-home-podcasts">
+    <h1 class="euro-title"><b class="icon-cd-1"></b>Podcasts</h1>
+    <ul class="euro-home-podcasts-list">
+      <li ng-repeat="item in podcasts">
+        <figure>
+          <a ng-click="openMusic(item.uri)"><img ng-src="{{item.artwork_url}}"></a>
+          <figcaption>
+            {{item.title}}
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+  <section class="euro-home-artists">
+    <h1 class="euro-title"><b class="icon-star-empty"></b>Artists</h1>
+    <p class="loading" ng-show="home.artists.length == 0">loading artists...</p>
+    <ul class="euro-home-artists-list">
+      <li ng-repeat="item in home.artists">
+        <figure>
+          <a ng-href="/#/artists/{{item.name}}"><img ng-src="{{item.image[3]['#text']}}" alt=""></a>
+          <figcaption>{{item.name}}</figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="button-load-more" ng-show="home.artists.length > 0"><button ng-click="loadMoreArtists()">Load more artists</button></p>
+  </section>
+</div>

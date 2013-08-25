@@ -1,8 +1,9 @@
 @import 'compass';
 @import 'shared/normalize';
+@import 'core/typography';
 @import 'core/colors';
 @import 'core/helpers';
-@import 'core/images';
-@import 'core/typography';
-@import 'core/images';
+@import 'core/classes';
+@import 'core/mixins';
 @import 'shared/header';
+@import 'shared/menu';

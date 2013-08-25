@@ -1,4 +1,4 @@
-EurodanceApp.factory( 'MusicFactory', function( $http ) {
+EurodanceApp.factory( 'MusicFactory', function( $rootScope, $http ) {
 
   return {
 
@@ -14,6 +14,20 @@ EurodanceApp.factory( 'MusicFactory', function( $http ) {
         cache  : true
       });
 
+    },
+
+    getPodcasts: function() {
+
+      return $http({
+        method : 'jsonp',
+        url    : 'http://api.soundcloud.com/users/djadrianofernandes/tracks.json?client_id=cd001908211e3eaa05d2f9212497182d&callback=JSON_CALLBACK',
+        cache  : true
+      });
+
+    },
+
+    setScopeInfo: function( objInfo ) {
+      $rootScope.podcasts = objInfo;
     }
 
   }

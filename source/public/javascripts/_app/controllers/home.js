@@ -1,4 +1,4 @@
-EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFactory ) {
+EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFactory, MusicFactory ) {
 
   // define methods
   // ---------------------------------------------
@@ -9,7 +9,15 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
       HomeFactory.setScopeInfo( response.data.weeklyartistchart.artist );
     });
 
-  }
+  };
+
+  $scope.showPodcasts = function() {
+
+    MusicFactory.getPodcasts().then(function( response ) {
+      MusicFactory.setScopeInfo( response.data );
+    });
+
+  };
 
   $scope.loadMoreArtists = function() {
 
@@ -19,9 +27,10 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
       HomeFactory.setScopeInfo( response.data.weeklyartistchart.artist );
     });
 
-  }
+  };
 
   // start the app
+  $scope.showPodcasts();
   $scope.showArtists();
 
 })
@@ -40,7 +49,6 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
           });
         }
       });
-
     }
   };
 });

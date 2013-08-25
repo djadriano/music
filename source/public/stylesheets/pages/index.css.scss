@@ -1,17 +1,8 @@
 @import 'core/base';
 
-.menu {
-  background: #666;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 150px;
-}
-
 .content {
   @include transition(left 300ms ease-in);
-  background: #fff;
+  background: $color-background;
   height: 100%;
   z-index: 1000;
   display: block;
@@ -23,45 +14,45 @@
 }
 
 .grid {
-  width: 80%;
+  width: 100%;
   margin: auto;
+  padding: 0 em(40);
 }
 
-.home {
-  background: #fff;
-  padding: 0 em(20);
-  // padding-top: 150px;
-
-  h1 {
-    // text-align: left;
-  }
+.euro-home {
+  margin-top: em(120);
 }
 
-.home-list-artists {
+.euro-home-podcasts {
+  position: relative;
+}
+
+.euro-home-podcasts-list {
+  @include translate3d(0, 0, 0);
+  @include column-count(6);
+  @include column-gap(em(20));
+  @include column-width(em(150));
   padding: 0;
   margin: 0;
-  -webkit-column-count: auto;
-  -webkit-column-gap: em(20);
-  -webkit-column-width: em(160);
-  @include translate3d(0, 0, 0);
 
   li {
     @include translate3d(0, 0, 0);
-    display: inline-block;
     vertical-align: top;
+    // display: inline-block;
     text-align: center;
     width: 100%;
     overflow: hidden;
     margin-bottom: em(20);
 
     figure {
+      @include border-radius(5px);
+      background: #fff;
       position: relative;
 
       img {
+        @include border-top-radius(5px);
         @include transition(all 300ms ease-in-out);
         @include translate3d(0, 0, 0);
-        border: 1px solid #e9e9e9;
-        padding: em(5);
         width: 100%;
         max-width: 100%;
         max-height: 100%;
@@ -79,11 +70,68 @@
       }
 
       figcaption {
+        @include border-bottom-radius(5px);
         @include transition(opacity 300ms ease-in-out);
         background: #fff;
         text-align: left;
-        padding: em(10) em(5);
-        color: #bbb;
+        padding: em(20);
+        color: #7c7c7c;
+        font-weight: bold;
+        font-size: em(13);
+        border-top: 0;
+      }
+    }
+  }
+}
+
+.euro-home-artists-list {
+  @include translate3d(0, 0, 0);
+  @include column-count(auto);
+  @include column-gap(em(20));
+  @include column-width(em(200));
+  padding: 0;
+  margin: 0;
+
+  li {
+    @include translate3d(0, 0, 0);
+    vertical-align: top;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: em(20);
+
+    figure {
+      @include border-radius(5px);
+      background: #fff;
+      position: relative;
+
+      img {
+        @include border-top-radius(5px);
+        @include transition(all 300ms ease-in-out);
+        @include translate3d(0, 0, 0);
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+
+        &:hover {
+          -webkit-filter: grayscale(100%);
+        }
+      }
+
+      &:hover {
+        figcaption {
+          opacity: 1;
+        }
+      }
+
+      figcaption {
+        @include border-bottom-radius(5px);
+        @include transition(opacity 300ms ease-in-out);
+        background: #fff;
+        text-align: left;
+        padding: em(20);
+        color: #7c7c7c;
         font-weight: bold;
         font-size: em(16);
         border-top: 0;
@@ -97,7 +145,7 @@
 }
 
 .artists {
-  background: #fff;
+  background: $color-background;
   padding: 0 em(20);
 }
 
@@ -123,7 +171,7 @@
 }
 
 .videos {
-  background: #fff;
+  background: $color-background;
   padding: 0 em(20);
 }
 
@@ -204,7 +252,7 @@
 
       figcaption {
         @include transition(opacity 300ms ease-in-out);
-        background: #fff;
+        background: $color-background;
         text-align: left;
         padding: em(10) em(5);
         color: #bbb;
