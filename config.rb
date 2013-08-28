@@ -6,6 +6,11 @@ set :js_dir    , "public/javascripts"
 set :images_dir, "public/images"
 
 # ---------------------------------
+# Disabled layout for partials
+# ---------------------------------
+page '/partials/*', :layout => false
+
+# ---------------------------------
 # Livereload
 # ---------------------------------
 activate :livereload

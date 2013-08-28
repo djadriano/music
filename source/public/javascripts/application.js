@@ -1,4 +1,4 @@
-var EurodanceApp = angular.module( 'eurodancecombr', ['ngRoute'] );
+var EurodanceApp = angular.module( 'eurodancecombr', [ 'ngRoute' ] );
 
 EurodanceApp.config(['$routeProvider', '$sceProvider', function( $routeProvider, $sceProvider ) {
   $routeProvider
