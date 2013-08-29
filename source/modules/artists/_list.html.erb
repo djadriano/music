@@ -1,0 +1,21 @@
+<section class="euro-home-artists">
+  <h1 class="euro-title"><b class="icon-star-empty"></b>Artists</h1>
+  <ul class="euro-home-artists-list">
+    <li ng-repeat="item in home.artists">
+      <figure>
+        <a ng-href="/#/artists/{{item.name}}"><img ng-src="{{item.image[3]['#text']}}" alt=""></a>
+        <figcaption>
+          {{item.name}}
+        </figcaption>
+      </figure>
+      <nav class="euro-home-artists-list-nav">
+        <ul class="is-not-list">
+          <li><a href="#"><b class="icon-youtube"></b> <i>Vídeos</i></a></li>
+          <li><a href="#"><b class="icon-cd-1"></b> <i>Mixes</i></a></li>
+          <li><a href="#"><b class="icon-twitter"></b> <i>Twitter</i></a></li>
+        </ul>
+      </nav>
+    </li>
+  </ul>
+  <p class="button-load-more" ng-show="home.artists.length > 0"><button ng-click="loadMoreArtists()">Load more artists</button></p>
+</section>

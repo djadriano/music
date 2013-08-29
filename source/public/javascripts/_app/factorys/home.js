@@ -4,7 +4,7 @@ EurodanceApp.factory( 'HomeFactory', function( $rootScope, $http ) {
 
     getArtist: function( page ) {
 
-      var limit = 50,
+      var limit = 20,
           page  = page || 1;
 
       return $http({

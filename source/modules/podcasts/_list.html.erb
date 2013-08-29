@@ -1,0 +1,13 @@
+<section class="euro-home-podcasts">
+  <h1 class="euro-title"><b class="icon-cd-1"></b><%= data.music.profile %></h1>
+  <ul class="euro-home-podcasts-list">
+    <li ng-repeat="item in podcasts">
+      <figure>
+        <a ng-click="openMusic(item.uri)"><img ng-src="{{item.artwork_url}}"></a>
+        <figcaption>
+          {{item.title}}
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+</section>
