@@ -1,0 +1,78 @@
+/**
+ *
+ * Defaults.css.scss
+ * ---------------------------------------------------
+ * Define default values to elements and classes
+ *
+ */
+
+* { @include box-sizing( border-box ); }
+
+legend, hr { display: none; }
+
+fieldset { border: 0; }
+
+html {
+  @extend .bg-background;
+  height: 100%;
+}
+
+body {
+  @extend .bg-background;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: $font-default;
+  color: get-colour('gray-2');
+}
+
+a {
+  color: get-colour('gray-2');
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Remove list style of element */
+
+.is-not-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Alignment classes */
+
+.align-left   { text-align: left;   }
+.align-center { text-align: center; }
+.align-right  { text-align: right;  }
+
+/* Loading class */
+
+.loading {
+  @extend .align-center;
+  text-transform: uppercase;
+  font-size: $font-size-2;
+  font-weight: bold;
+}
+
+.modules {
+  margin-bottom: $space-4;
+
+  > p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &:first-child {
+    margin-top: $space-4;
+  }
+}
+
+/* Execute the mixins for generate the defaults classes */
+
+@include generate-icon-classes( $icons );
+@include generate-colours-classes( $colors );

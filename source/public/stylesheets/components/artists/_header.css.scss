@@ -1,0 +1,10 @@
+.artists-header {
+  margin-top: $space-4;
+
+  [class*="title-"] {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: $space-1;
+    border-bottom: 1px solid get-colour('gray-1');
+  }
+}

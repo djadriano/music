@@ -1,0 +1,16 @@
+.nav-icons {
+  > ul {
+    @extend .is-not-list;
+    padding-top: $space-2;
+    display: flex;
+    flex-flow: row wrap;
+
+    > .nav-icons-item {
+      font-size: em(32);
+
+      a { color: get-colour('beige'); }
+
+      span { display: none; }
+    }
+  }
+}

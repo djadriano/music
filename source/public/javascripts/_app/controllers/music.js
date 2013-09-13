@@ -10,10 +10,10 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
   $scope.checkExistArtistData = function() {
 
     if( !!$rootScope.artists === false ) {
-      ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
+      ArtistsFactory.getInfo().then(function( response ) {
         ArtistsFactory.setScopeInfo({
           name  : response.data.artist.name,
-          photo : response.data.artist.image[ 3 ][ '#text' ]
+          photo : response.data.artist.image[ 2 ][ '#text' ]
         });
       });
     }
@@ -22,7 +22,7 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
 
   $scope.getMusic = function() {
 
-    MusicFactory.getMusic( $routeParams.name, $scope.artist_music_page ).then(function( response ) {
+    MusicFactory.getMusic( $scope.artist_music_page ).then(function( response ) {
       $scope.artist_music            = response.data.collection;
       $scope.artist_music_next_href  = response.data.next_href === undefined ? '' : response.data.next_href;
     });
@@ -33,7 +33,7 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
 
     $scope.artist_music_page = $scope.artist_music_page + 1;
 
-    MusicFactory.getMusic( $routeParams.name, $scope.artist_music_page ).then(function( response ) {
+    MusicFactory.getMusic( $scope.artist_music_page ).then(function( response ) {
       $scope.artist_music           = $scope.artist_music.concat( response.data.collection );
       $scope.artist_music_next_href = response.data.next_href === undefined ? '' : response.data.next_href;
     });

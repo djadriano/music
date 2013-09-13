@@ -1,0 +1,18 @@
+<section class="podcasts">
+  <header class="podcasts-header boxes horizontal modules">
+    <figure>
+      <img ng-src="{{selectedPodcast.artwork_url}}" alt="{{artists.infos.name}}">
+      <figcaption>
+        <h1 class="title-1">{{selectedPodcast.title}}</h1>
+        <ul class="boxes-info">
+          <li><b class="icon-headphones"></b>{{selectedPodcast.playback_count}}</li>
+          <li><b class="icon-heart"></b>{{selectedPodcast.favoritings_count}}</li>
+          <li><b class="icon-down"></b>{{selectedPodcast.download_count}}</li>
+        </ul>
+      </figcaption>
+    </figure>
+  </header>
+  <div class="podcasts-content modules">
+    <p ng-bind-html="selectedPodcast.description"></p>
+  </div>
+</section>

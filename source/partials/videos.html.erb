@@ -1,0 +1,26 @@
+<section class="artists-videos">
+  <header class="artists-header boxes horizontal modules">
+    <figure>
+      <img ng-src="{{artists.infos.photo}}" alt="{{artists.infos.name}}">
+      <figcaption>
+        <h1 class="title-1">{{artists.infos.name}}</h1>
+        <%= partial "modules/artists/menu" %>
+      </figcaption>
+    </figure>
+  </header>
+  <div class="artists-videos-content">
+    <h1>Videos</h1>
+    <p class="loading" ng-show="artist_videos.length == 0">loading videos...</p>
+    <ul class="boxes-list horizontal">
+      <li ng-repeat="item in artist_videos" class="boxes horizontal">
+        <figure class="boxes-image">
+          <a ng-click="openVideo(item.id.videoId)"><img ng-src="{{item.snippet.thumbnails.default.url}}"></a>
+          <figcaption>
+            {{item.snippet.title | limitTo: 40}}
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="button-load-more" ng-show="artist_videos.length <= artist_videos_total && artist_videos.length > 0"><button ng-click="loadMoreVideos()">Load more videos</button></p>
+  </div>
+</section>

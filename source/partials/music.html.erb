@@ -1,0 +1,31 @@
+<section class="artists-music">
+  <header class="artists-header boxes horizontal modules">
+    <figure>
+      <img ng-src="{{artists.infos.photo}}" alt="{{artists.infos.name}}">
+      <figcaption>
+        <h1 class="title-1">{{artists.infos.name}}</h1>
+        <%= partial "modules/artists/menu" %>
+      </figcaption>
+    </figure>
+  </header>
+  <div class="artists-music-content modules">
+    <h1>Mixes</h1>
+    <p class="loading" ng-show="artist_music.length == 0">loading mixes...</p>
+    <ul class="boxes-list horizontal">
+      <li ng-repeat="item in artist_music" class="boxes horizontal">
+        <figure class="boxes-image">
+          <a ng-click="openMusic(item.uri)"><img ng-src="{{item.artwork_url}}"></a>
+          <figcaption>
+            {{item.title}}
+            <ul class="boxes-info">
+              <li><b class="icon-headphones"></b>230</li>
+              <li><b class="icon-heart"></b>2</li>
+              <li><b class="icon-down"></b>26</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="button-load-more" ng-show="artist_music_next_href != '' && artist_music.length > 0"><button ng-click="loadMoreMusic()">Load more music</button></p>
+  </div>
+</section>

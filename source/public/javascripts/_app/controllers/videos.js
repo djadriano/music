@@ -10,10 +10,10 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
   $scope.checkExistArtistData = function() {
 
     if( !!$rootScope.artists === false ) {
-      ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
+      ArtistsFactory.getInfo().then(function( response ) {
         ArtistsFactory.setScopeInfo({
           name  : response.data.artist.name,
-          photo : response.data.artist.image[ 3 ][ '#text' ]
+          photo : response.data.artist.image[ 2 ][ '#text' ]
         });
       });
     }
@@ -22,7 +22,8 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
 
   $scope.getVideos = function() {
 
-    VideosFactory.getVideos( $routeParams.name, $scope.artist_videos_page ).then(function( response ) {
+    VideosFactory.getVideos( $scope.artist_videos_page ).then(function( response ) {
+      console.log(response);
       $scope.artist_videos_total = response.data.pageInfo.totalResults;
       $scope.artist_videos       = response.data.items;
       $scope.artist_videos_page  = response.data.nextPageToken;
@@ -32,7 +33,7 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
 
   $scope.loadMoreVideos = function() {
 
-    VideosFactory.getVideos( $routeParams.name, $scope.artist_videos_page ).then(function( response ) {
+    VideosFactory.getVideos( $scope.artist_videos_page ).then(function( response ) {
       $scope.artist_videos       = $scope.artist_videos.concat( response.data.items );
       $scope.artist_videos_page  = response.data.nextPageToken;
     });

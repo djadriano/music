@@ -14,6 +14,7 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
   $scope.showPodcasts = function() {
 
     MusicFactory.getPodcasts().then(function( response ) {
+      console.log(response.data);
       MusicFactory.setScopeInfo( response.data );
     });
 

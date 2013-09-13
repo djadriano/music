@@ -9,3 +9,6 @@
 //= require '_app/controllers/videos'
 //= require '_app/controllers/music'
 //= require '_app/controllers/search'
+//= require '_app/controllers/podcasts'
+//= require '_app/controllers/player'
+//= require '_app/filters/beauty_url'

@@ -1,25 +1,19 @@
-EurodanceApp.factory( 'PlayerFactory', function( $rootScope ) {
+EurodanceApp.factory( 'PlayerFactory', function( $http ) {
 
   return {
 
-    play: function( id, type ) {
+    getPlayer: function( url ) {
 
-      switch( type ) {
-        case 'video':
-          var url = "http://www.youtube.com/embed/"+ id +"?autoplay=1";
-        break;
-        case 'music':
-          var url = "https://w.soundcloud.com/player/?url=" + id;
-        break;
-      };
+      return $http({
+        method : 'post',
+        url    : 'http://soundcloud.com/oembed?format=json',
+        params : {
+          url : url
+        },
+        cache  : true
+      });
 
-      $rootScope.player = {
-        type : type,
-        url  : url,
-        show : true
-      };
-
-    }
+    },
 
   };
 

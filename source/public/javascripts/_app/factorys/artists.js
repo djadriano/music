@@ -1,14 +1,16 @@
-EurodanceApp.factory( 'ArtistsFactory', function( $rootScope, $http ) {
+EurodanceApp.factory( 'ArtistsFactory', function( $rootScope, $http, $routeParams ) {
 
   return {
 
-    getInfo: function( name ) {
+    getInfo: function() {
+
+      var artist_name = $routeParams.name;
 
       return $http({
         method : 'JSONP',
         url    : 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&api_key=4959ac7ccf2055437d47a70303cc0ee0&format=json&autocorrect=1&callback=JSON_CALLBACK',
         params : {
-          artist : name
+          artist : artist_name.replace( /-/g, ' ' )
         },
         cache  : true
       });

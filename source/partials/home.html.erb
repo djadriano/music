@@ -1,2 +1,32 @@
-<%= partial "modules/podcasts/list" %>
-<%= partial "modules/artists/list" %>
+<section class="home-podcasts modules">
+  <h1 class="title-1"><b class="icon-cd-1"></b><%= data.music.profile %></h1>
+  <ul class="boxes-list horizontal">
+    <li ng-repeat="item in podcasts" class="boxes horizontal">
+      <figure class="boxes-image">
+        <a ng-href="/#/podcasts/{{item.user.permalink}}/{{item.permalink}}"><img ng-src="{{item.artwork_url}}"></a>
+        <figcaption>
+          {{item.title | limitTo:50}}
+          <ul class="boxes-info">
+            <li><b class="icon-headphones"></b>{{item.playback_count}}</li>
+            <li><b class="icon-heart"></b>{{item.favoritings_count}}</li>
+            <li><b class="icon-down"></b>{{item.download_count}}</li>
+          </ul>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+</section>
+<section class="home-artists modules">
+  <h1 class="title-1"><b class="icon-star-empty"></b>Artists</h1>
+  <ul class="boxes-list">
+    <li ng-repeat="item in home.artists" class="boxes vertical">
+      <figure class="boxes-image">
+        <a ng-href="/#/artists/{{item.name | beautyUrlParam}}"><img ng-src="{{item.image[3]['#text']}}" alt=""></a>
+        <figcaption>
+          {{item.name}}
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+  <p class="button-load-more align-center" ng-show="home.artists.length > 0"><button ng-click="loadMoreArtists()">Load more artists</button></p>
+</section>

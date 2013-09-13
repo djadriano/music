@@ -18,6 +18,10 @@ EurodanceApp.config(['$routeProvider', '$sceProvider', function( $routeProvider,
       templateUrl: 'partials/music.html',
       controller : 'MusicController'
     })
+    .when('/podcasts/:dj/:permalink', {
+      templateUrl: 'partials/podcasts.html',
+      controller : 'PodcastsController'
+    })
     .when('/search/:value', {
       templateUrl: 'partials/search.html',
       controller : 'SearchController'

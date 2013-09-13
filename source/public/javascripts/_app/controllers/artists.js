@@ -1,7 +1,5 @@
 EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $routeParams, ArtistsFactory ) {
 
-  $scope.artistsInfo = [];
-
   // define methods
   // ---------------------------------------------
 
@@ -9,7 +7,7 @@ EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $rout
 
     ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
 
-      $scope.artistsInfo.push( response.data.artist );
+      $scope.artistsInfo = response.data.artist;
 
       ArtistsFactory.setScopeInfo({
         name  : response.data.artist.name,

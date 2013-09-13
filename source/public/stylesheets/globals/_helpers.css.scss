@@ -1,0 +1,64 @@
+/**
+ *
+ * Helpers.css.scss
+ * ---------------------------------------------------
+ * Contains all mixins and functions of project
+ *
+ */
+
+
+/* Convert pixels to em */
+
+@function em($value, $default: 16) {
+  @return ($value / $default) + 0em;
+}
+
+/* Function for get item in array */
+
+@function options( $arr, $search ) {
+  $found-item: '';
+
+  @each $items in $arr {
+    @if nth($items, 1) == $search {
+      $found-item: $items;
+    }
+  }
+
+  @return $found-item;
+}
+
+/* Function for get colours */
+
+@function get-colour( $item ) {
+  @return nth( options( $colors, $item ), 2 );
+}
+
+/* Mixin for generate icon classes */
+
+@mixin generate-icon-classes( $icons ) {
+  [class^="icon-"]:before,
+  [class*="icon-"]:before {
+    font-family: "fontello";
+    display: inline-block;
+    margin-right: em(10);
+    font-weight: normal;
+  }
+
+  @each $item in $icons {
+    .icon-#{nth($item, 1)}:before {
+      content: nth($item, 2);
+    }
+  }
+}
+
+@mixin generate-colours-classes( $colors ) {
+  @each $item in $colors {
+    .color-#{nth($item, 1)} {
+      color: nth($item, 2);
+    }
+
+    .bg-#{nth($item, 1)} {
+      background-color: nth($item, 2);
+    }
+  }
+}

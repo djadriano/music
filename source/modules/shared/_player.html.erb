@@ -1,6 +1,3 @@
-<div class="player">
-  <div class="player-video-container" ng-show="player">
-    <pre>{{player.url}}</pre>
-    <player type="{{player.type}}" url="{{player.url}}"></player>
-  </div>
+<div class="player" ng-show="player" ng-controller="PlayerController">
+  <div ng-bind-html="player" class="player-video-container"></div>
 </div>
