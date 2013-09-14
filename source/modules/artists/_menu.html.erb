@@ -1,16 +1,16 @@
 <nav class="nav-icons" ng-repeat="items in artists">
   <ul>
     <li class="nav-icons-item">
-      <a href="/#/artists/{{artists.infos.name | beautyUrlParam}}" title="{{artists.infos.name}} Page"><b class="icon-home"></b><span>{{artists.infos.name}} Page</span></a>
+      <a href="/artists/{{artists.infos.name | beautyUrlParam}}" title="{{artists.infos.name}} Page"><b class="icon-home"></b><span>{{artists.infos.name}} Page</span></a>
     </li>
     <li class="nav-icons-item">
-      <a href="/#/artists/{{artists.infos.name | beautyUrlParam}}/music" title="{{artists.infos.name}} Mixes"><b class="icon-soundcloud"></b><span>Music</span></a>
+      <a href="/artists/{{artists.infos.name | beautyUrlParam}}/music" title="{{artists.infos.name}} Mixes"><b class="icon-soundcloud"></b><span>Music</span></a>
     </li>
     <li class="nav-icons-item">
-      <a href="/#/artists/{{artists.infos.name | beautyUrlParam}}/videos" title="{{artists.infos.name}} Videos"><b class="icon-youtube"></b><span>Videos</span></a>
+      <a href="/artists/{{artists.infos.name | beautyUrlParam}}/videos" title="{{artists.infos.name}} Videos"><b class="icon-youtube"></b><span>Videos</span></a>
     </li>
-    <li class="nav-icons-item">
-      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Freference%2Fplugins%2Flike&amp;width=150&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false&amp;appId=236268289827601" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+    <li class="nav-icons-item" ng-show="fbLikeButton">
+      <iframe ng-src="{{fbLikeButton}}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:26px;" allowTransparency="true"></iframe>
     </li>
   </ul>
 </nav>

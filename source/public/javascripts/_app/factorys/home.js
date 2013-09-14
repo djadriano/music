@@ -1,4 +1,4 @@
-EurodanceApp.factory( 'HomeFactory', function( $rootScope, $http ) {
+EurodanceApp.factory( 'HomeFactory',[ '$rootScope', '$http', function( $rootScope, $http ) {
 
   return {
 
@@ -30,4 +30,4 @@ EurodanceApp.factory( 'HomeFactory', function( $rootScope, $http ) {
 
   }
 
-});
+}]);

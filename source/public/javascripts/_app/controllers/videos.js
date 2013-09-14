@@ -1,4 +1,4 @@
-EurodanceApp.controller('VideosController', function( $scope, $rootScope, $routeParams, ArtistsFactory, VideosFactory, PlayerFactory ) {
+EurodanceApp.controller('VideosController', [ '$scope', '$rootScope', '$routeParams', 'ArtistsFactory', 'VideosFactory', 'PlayerFactory', 'AppFactory', function( $scope, $rootScope, $routeParams, ArtistsFactory, VideosFactory, PlayerFactory, AppFactory ) {
 
   // define methods
   // ---------------------------------------------
@@ -23,10 +23,17 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
   $scope.getVideos = function() {
 
     VideosFactory.getVideos( $scope.artist_videos_page ).then(function( response ) {
-      console.log(response);
       $scope.artist_videos_total = response.data.pageInfo.totalResults;
       $scope.artist_videos       = response.data.items;
       $scope.artist_videos_page  = response.data.nextPageToken;
+
+      if( !$rootScope.fbLikeButton ) {
+
+        $timeout(function() {
+          AppFactory.setUrlToFbLike();
+        }, 500);
+
+      }
     });
 
   };
@@ -42,7 +49,9 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
 
   $scope.openVideo = function( param ) {
 
-    PlayerFactory.play( param, 'video' );
+    VideosFactory.getPlayer( param ).then(function(response) {
+      $rootScope.$broadcast( 'video:loaded', response.data.items[ 0 ].player.embedHtml );
+    });
 
     window.scrollTo(0);
 
@@ -52,4 +61,4 @@ EurodanceApp.controller('VideosController', function( $scope, $rootScope, $route
   $scope.checkExistArtistData();
   $scope.getVideos();
 
-});
+}]);

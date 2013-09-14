@@ -1,4 +1,4 @@
-EurodanceApp.controller('SearchController', function( $scope, $rootScope, $routeParams, $location, ArtistsFactory ) {
+EurodanceApp.controller('SearchController', [ '$scope', '$rootScope', '$routeParams', '$location', 'ArtistsFactory', function( $scope, $rootScope, $routeParams, $location, ArtistsFactory ) {
 
   $scope.artists = [];
 
@@ -21,4 +21,4 @@ EurodanceApp.controller('SearchController', function( $scope, $rootScope, $route
   // start the app
   $scope.getArtists();
 
-});
+}]);

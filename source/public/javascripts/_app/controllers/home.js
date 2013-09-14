@@ -1,4 +1,4 @@
-EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFactory, MusicFactory ) {
+EurodanceApp.controller('HomeController', [ '$scope', '$rootScope', 'HomeFactory', 'MusicFactory', function( $scope, $rootScope, HomeFactory, MusicFactory ) {
 
   // define methods
   // ---------------------------------------------
@@ -14,7 +14,6 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
   $scope.showPodcasts = function() {
 
     MusicFactory.getPodcasts().then(function( response ) {
-      console.log(response.data);
       MusicFactory.setScopeInfo( response.data );
     });
 
@@ -34,22 +33,4 @@ EurodanceApp.controller('HomeController', function( $scope, $rootScope, HomeFact
   $scope.showPodcasts();
   $scope.showArtists();
 
-})
-.directive('menu', function() {
-  return {
-    restrict: 'A',
-    link: function( scope, element, attrs ) {
-      element.bind('click', function() {
-        if( !scope.openMenu ) {
-          scope.$apply(function() {
-            scope.openMenu = true;
-          });
-        } else {
-          scope.$apply(function() {
-            scope.openMenu = false;
-          });
-        }
-      });
-    }
-  };
-});
+}]);

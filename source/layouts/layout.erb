@@ -1,11 +1,25 @@
 <!doctype html>
-<html>
+<html ng-app="eurodancecombr">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cleartype"       content="on">
+    <meta name="description"           content="O melhor da eurodance está volta. Aguarde que em breve teremos novidades!">
+    <meta name="keywords"              content="eurodance, dance, 90s, taleesa, dj bobo, ice mc">
 
-    <title>Eurodance.com.br</title>
+    <!-- facebook metatags -->
+    <meta property="fb:app_id"      content="236268289827601" />
+    <meta property="og:title"       content="Eurodance.com.br" />
+    <meta property="og:url"         content="http://www.eurodance.com.br" />
+    <meta property="og:image"       content="http://www.eurodance.com.br/public/images/logo_social.gif" />
+    <meta property="og:description" content="O melhor da eurodance está volta. Aguarde que em breve teremos novidades!" />
+    <meta property="og:site_name"   content="Eurodance.com.br - Temp Version" />
+    <meta property="og:type"        content="site" />
+
+    <base href="/" />
+
+    <title>Eurodance.com.br - Since 2001 with the best Eurodance on the Web!</title>
 
     <!-- stylesheet -->
     <%= stylesheet_link_tag 'pages/' + path_assets %>
@@ -15,15 +29,7 @@
     <script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
   </head>
 
-  <body class="<%= page_classes %>" ng-app="eurodancecombr">
-
-    <nav class="euro-menu">
-      <ul>
-        <li><a href="#">Artistas</a></li>
-        <li><a href="#">Podcasts</a></li>
-        <li><a href="#">Lugares</a></li>
-      </ul>
-    </nav>
+  <body class="<%= page_classes %>">
 
     <div class="content" ng-class="{open: openMenu}">
       <%= partial "modules/shared/player" %>
@@ -33,6 +39,18 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'pages/' + path_assets %>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1535256-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 
   </body>
 </html>

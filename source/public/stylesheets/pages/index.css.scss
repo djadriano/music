@@ -2,12 +2,12 @@
 
 /* Components */
 
+@import 'components/shared/player';
 @import 'components/shared/boxes';
 @import 'components/shared/nav_icons';
 @import 'components/artists/header';
 
 .content {
-  @include transition(left 300ms ease-in);
   @extend .bg-background;
   height: 100%;
   z-index: 1000;
@@ -23,8 +23,4 @@
   width: 100%;
   margin: auto;
   padding: 0 em(20);
-}
-
-.euro-home {
-  margin-top: em(120);
 }

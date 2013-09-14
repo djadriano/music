@@ -1,0 +1,12 @@
+<section class="home">
+  <h1 class="title">Search Results</h1>
+  <ul class="home-list-artists">
+    <li ng-repeat="item in artists">
+      <figure>
+        <a href="/#/artists/{{item.name}}"><img src="{{item.image[3]['#text']}}" alt=""></a>
+        <figcaption>{{item.name}}</figcaption>
+      </figure>
+      <p ng-repeat="item2 in item.similar.artist">{{item2.name}}</p>
+    </li>
+  </ul>
+</section>

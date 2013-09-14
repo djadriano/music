@@ -1,4 +1,4 @@
-EurodanceApp.factory( 'MusicFactory', function( $rootScope, $http, $routeParams ) {
+EurodanceApp.factory( 'MusicFactory', [ '$rootScope', '$http', '$routeParams', function( $rootScope, $http, $routeParams ) {
 
   return {
 
@@ -28,9 +28,13 @@ EurodanceApp.factory( 'MusicFactory', function( $rootScope, $http, $routeParams 
 
     },
 
-    selectedPodcast: function() {
+    selectedPodcast: function( param ) {
 
-      var url_param = 'http://soundcloud.com/' + $routeParams.dj + '/' + $routeParams.permalink;
+      if( param ) {
+        url_param = param;
+      } else {
+        var url_param = 'http://soundcloud.com/' + $routeParams.dj + '/' + $routeParams.permalink;
+      }
 
       return $http({
         method : 'jsonp',
@@ -49,4 +53,4 @@ EurodanceApp.factory( 'MusicFactory', function( $rootScope, $http, $routeParams 
 
   }
 
-});
+}]);

@@ -3,7 +3,7 @@
   <ul class="boxes-list horizontal">
     <li ng-repeat="item in podcasts" class="boxes horizontal">
       <figure class="boxes-image">
-        <a ng-href="/#/podcasts/{{item.user.permalink}}/{{item.permalink}}"><img ng-src="{{item.artwork_url}}"></a>
+        <a ng-href="/podcasts/{{item.user.permalink}}/{{item.permalink}}"><img lazy-images data-src="item.artwork_url"></a>
         <figcaption>
           {{item.title | limitTo:50}}
           <ul class="boxes-info">
@@ -21,12 +21,14 @@
   <ul class="boxes-list">
     <li ng-repeat="item in home.artists" class="boxes vertical">
       <figure class="boxes-image">
-        <a ng-href="/#/artists/{{item.name | beautyUrlParam}}"><img ng-src="{{item.image[3]['#text']}}" alt=""></a>
+        <a ng-href="/artists/{{item.name | beautyUrlParam}}"><img lazy-images data-src="item.image[3]['#text']"></a>
         <figcaption>
           {{item.name}}
         </figcaption>
       </figure>
     </li>
   </ul>
-  <p class="button-load-more align-center" ng-show="home.artists.length > 0"><button ng-click="loadMoreArtists()">Load more artists</button></p>
+  <div class="modules align-center" ng-show="home.artists.length > 0">
+    <button ng-click="loadMoreArtists()" class="button-load-more"><b class="icon-plus"></b>Load more artists</button>
+  </div>
 </section>

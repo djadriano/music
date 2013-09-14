@@ -1,11 +1,11 @@
-EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $routeParams, ArtistsFactory ) {
+EurodanceApp.controller('ArtistsController', [ '$scope', '$rootScope', '$routeParams', '$location', '$timeout', 'AppFactory', 'ArtistsFactory', function( $scope, $rootScope, $routeParams, $location, $timeout, AppFactory, ArtistsFactory ) {
 
   // define methods
   // ---------------------------------------------
 
   $scope.getArtistInfo = function() {
 
-    ArtistsFactory.getInfo( $routeParams.name ).then(function( response ) {
+    ArtistsFactory.getInfo().then(function( response ) {
 
       $scope.artistsInfo = response.data.artist;
 
@@ -15,6 +15,14 @@ EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $rout
         photo : response.data.artist.image[ 2 ][ '#text' ]
       });
 
+      if( !$rootScope.fbLikeButton ) {
+
+        $timeout(function() {
+          AppFactory.setUrlToFbLike();
+        }, 500);
+
+      }
+
     });
 
   }
@@ -22,4 +30,4 @@ EurodanceApp.controller('ArtistsController', function( $scope, $rootScope, $rout
   // start the app
   $scope.getArtistInfo();
 
-});
+}]);

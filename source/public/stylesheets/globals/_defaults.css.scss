@@ -54,6 +54,27 @@ a {
   font-weight: bold;
 }
 
+%buttons {
+  @include transition(all 200ms ease-in-out);
+  @include border-radius(17px);
+  border: 0;
+  padding: $space-1 $space-2;
+  font-size: $font-size-4;
+  font-weight: bold;
+}
+
+.button-load-more {
+  @extend %buttons;
+  @extend .bg-white;
+  @extend .color-gray-2;
+  margin: $space-2 0 $space-4 0;
+  border: 1px solid get-colour('gray-1');
+
+  &:hover {
+    @extend .color-beige;
+  }
+}
+
 .modules {
   margin-bottom: $space-4;
 

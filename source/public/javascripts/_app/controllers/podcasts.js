@@ -1,4 +1,4 @@
-EurodanceApp.controller('PodcastsController', function( $scope, $rootScope, $routeParams, $sce, MusicFactory, PlayerFactory ) {
+EurodanceApp.controller('PodcastsController', [ '$scope', '$rootScope', '$routeParams', 'MusicFactory', 'PlayerFactory', function( $scope, $rootScope, $routeParams, MusicFactory, PlayerFactory ) {
 
   $scope.selectedPodcast = [];
 
@@ -10,10 +10,12 @@ EurodanceApp.controller('PodcastsController', function( $scope, $rootScope, $rou
 
       $rootScope.$broadcast( 'podcast:loaded', response.data.permalink_url );
 
+      window.scrollTo(0);
+
     });
 
   };
 
   $scope.selectedPodcast();
 
-});
+}]);

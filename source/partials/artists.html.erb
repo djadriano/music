@@ -10,14 +10,14 @@
     </figure>
   </header>
   <div class="artists-content modules">
-    <p ng-bind-html="artistsInfo.bio.content">{{artistsInfo.bio.content}}</p>
+    <p ng-bind-html="artistsInfo.bio.content | lineBreak"></p>
   </div>
   <div class="modules">
-    <h1 class="title-1">Related Artists</h1>
+    <h1 class="title-1"><b class="icon-star-empty"></b>Related Artists</h1>
     <ul class="boxes-list">
       <li ng-repeat="item in artistsInfo.similar.artist" class="boxes vertical">
         <figure>
-          <a ng-href="/#/artists/{{item.name | beautyUrlParam}}"><img ng-src="{{item.image[3]['#text']}}"></a>
+          <a ng-href="/artists/{{item.name | beautyUrlParam}}"><img lazy-images data-src="item.image[3]['#text']"></a>
           <figcaption>
             {{item.name}}
           </figcaption>

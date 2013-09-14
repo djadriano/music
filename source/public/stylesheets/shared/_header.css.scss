@@ -6,21 +6,13 @@
  *
  */
 
-.euro-header {
+.header {
   width: 100%;
   position: relative;
-  margin-top: em(80);
+  margin-top: em(40);
   text-align: center;
 
-  .euro-header-nav {
-    position: absolute;
-    top: em(4);
-    left: em(20);
-    font-size: em(35);
-    color: #7c7c7c;
-  }
-
-  .euro-header-logo {
+  .header-logo {
     figcaption {
       display: none;
     }

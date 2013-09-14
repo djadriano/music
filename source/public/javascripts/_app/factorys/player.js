@@ -1,4 +1,4 @@
-EurodanceApp.factory( 'PlayerFactory', function( $http ) {
+EurodanceApp.factory( 'PlayerFactory', [ '$http', function( $http ) {
 
   return {
 
@@ -17,4 +17,4 @@ EurodanceApp.factory( 'PlayerFactory', function( $http ) {
 
   };
 
-});
+}]);

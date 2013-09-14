@@ -1,4 +1,4 @@
-EurodanceApp.factory( 'ArtistsFactory', function( $rootScope, $http, $routeParams ) {
+EurodanceApp.factory( 'ArtistsFactory', [ '$rootScope', '$http', '$routeParams', function( $rootScope, $http, $routeParams ) {
 
   return {
 
@@ -31,4 +31,4 @@ EurodanceApp.factory( 'ArtistsFactory', function( $rootScope, $http, $routeParam
 
   }
 
-});
+}]);

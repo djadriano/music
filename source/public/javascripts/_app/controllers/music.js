@@ -1,4 +1,4 @@
-EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeParams, ArtistsFactory, MusicFactory, PlayerFactory ) {
+EurodanceApp.controller('MusicController', [ '$scope', '$rootScope', '$routeParams', 'ArtistsFactory', 'MusicFactory', 'AppFactory', function( $scope, $rootScope, $routeParams, ArtistsFactory, MusicFactory, AppFactory ) {
 
   // define methods
   // ---------------------------------------------
@@ -25,6 +25,14 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
     MusicFactory.getMusic( $scope.artist_music_page ).then(function( response ) {
       $scope.artist_music            = response.data.collection;
       $scope.artist_music_next_href  = response.data.next_href === undefined ? '' : response.data.next_href;
+
+      if( !$rootScope.fbLikeButton ) {
+
+        $timeout(function() {
+          AppFactory.setUrlToFbLike();
+        }, 500);
+
+      }
     });
 
   };
@@ -42,8 +50,16 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
 
   $scope.openMusic = function( param ) {
 
-    PlayerFactory.play( param, 'music' );
-    window.scrollTo(0);
+    MusicFactory.selectedPodcast( param ).then(function( response ) {
+
+      $scope.selectedPodcast = response.data;
+
+      $rootScope.$broadcast( 'podcast:loaded', response.data.permalink_url );
+
+      window.scrollTo(0);
+
+    });
+
 
   };
 
@@ -51,4 +67,4 @@ EurodanceApp.controller('MusicController', function( $scope, $rootScope, $routeP
   $scope.checkExistArtistData();
   $scope.getMusic();
 
-});
+}]);

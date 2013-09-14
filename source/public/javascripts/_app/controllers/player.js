@@ -1,9 +1,11 @@
-EurodanceApp.controller('PlayerController', function( $scope, $rootScope, PlayerFactory ) {
+EurodanceApp.controller('PlayerController', [ '$scope', '$rootScope', 'PlayerFactory', function( $scope, $rootScope, PlayerFactory ) {
 
   $rootScope.$on( 'podcast:loaded', function( evt, args ) {
-
     $scope.showPlayer( args );
+  });
 
+  $rootScope.$on( 'video:loaded', function( evt, args ) {
+    $scope.showPlayerVideo( args );
   });
 
   $scope.showPlayer = function( permalink ) {
@@ -12,4 +14,8 @@ EurodanceApp.controller('PlayerController', function( $scope, $rootScope, Player
     });
   };
 
-});
+  $scope.showPlayerVideo = function( html ) {
+    $scope.player = html;
+  };
+
+}]);

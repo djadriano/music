@@ -1,6 +1,7 @@
 var EurodanceApp = angular.module( 'eurodancecombr', [ 'ngRoute' ] );
 
-EurodanceApp.config(['$routeProvider', '$sceProvider', function( $routeProvider, $sceProvider ) {
+EurodanceApp.config(['$routeProvider', '$locationProvider', '$sceProvider', function( $routeProvider, $locationProvider, $sceProvider ) {
+
   $routeProvider
     .when('/', {
       templateUrl: 'partials/home.html',
@@ -27,9 +28,19 @@ EurodanceApp.config(['$routeProvider', '$sceProvider', function( $routeProvider,
       controller : 'SearchController'
     });
 
+    $locationProvider.html5Mode(true);
+
     $sceProvider.enabled( false );
+
 }]);
 
 EurodanceApp.run(['$rootScope', function( $rootScope ) {
+
   $rootScope.currentPage = 1;
+
+  $rootScope.fb_title       = 'Eurodance.com.br - Temp Version';
+  $rootScope.fb_url         = 'http://www.eurodance.com.br';
+  $rootScope.fb_image       = 'http://www.eurodance.com.br/public/images/logo_social.gif';
+  $rootScope.fb_description = 'O melhor da eurodance está volta. Aguarde que em breve teremos novidades!';
+
 }]);
